@@ -27,6 +27,17 @@
             width: 100%;
             padding: 120px;
         }
+              /* Slide in ani */
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        /* Add class for visible content */
+        .slide-in.active {
+            opacity: 1;
+            transform: translateX(0%);
+        }
 
 
     </style>
@@ -90,12 +101,10 @@
 
 
 <br><br>
-
-  <h1 class="text-center" id="What is Flaming">What is Flaming?</h1>
-  <br>
-
-  <div class="container">
-    <div class="row">
+<div class="container">
+    <div class="row slide-in">
+        <h1 class="text-center" id="What is Flaming">What is Flaming?</h1>
+          <br>
 
       <div class="col-6">
         <p>Flaming, also known as roasting, is the act of posting insults, often including profanity or other offensive language, on the internet. This term should not be confused with the term trolling, which is the act of someone causing discord online or in person. Flaming emerged from the anonymity that Internet forums provide cover for users to act more aggressively. Anonymity can lead to disinhibition, which results in the swearing, offensive, and hostile language characteristic of flaming. Lack of social cues, less accountability of face-to-face communications, textual mediation and deindividualization are also likely factors. Deliberate flaming is carried out by individuals known as flamers, which are specifically motivated to incite flaming. These users specialize in flaming and target specific aspects of a controversial conversation.</p>
@@ -105,10 +114,14 @@
         <img src="Cyberbullying(edited).png" class="img-fluid">
       </div>
 
+    </div>
+
+    <div class="row slide-in">
         <h1 class="text-center" style="margin-top: 50px; margin-bottom: 50px;" id="Impacts of flaming">Impacts of flaming</h1>
 
         <br><br><br><br>
 
+    
       <div class="col-6">
         <p>Just like any other types of cyberbullying, the targetted group of people, such as teenagers and children, they would experience negative emotional effects, for example:</p>
           <ul>
@@ -125,13 +138,16 @@
       <div class="col-6">
         <img src="R.png" class="img-fluid">
       </div>
+    </div>
 
       <br>
 
+    <div class="row slide-in">
       <h1 class="text-center " style="margin-top: 50px; margin-bottom: 50px;" id="Effects of flaming">Effects of flaming</h1>
 
       <br><br><br><br>
 
+    
       <div class="col-6" style="margin-bottom: 200px;">
         <p>When people experience cyberbullying for a extended amount of timing, it can cause long term anixety and depression to people, especially the young people. Additionally, their behaviours would be more noticable, for example:</p>
           <ul>
@@ -148,12 +164,13 @@
       <div class="col-6">
         <img src="Depression.jpeg" class="img-fluid">
       </div>
+    </div>
 
       <br>
 
-    </div>
+    
 
-    <div class="row">
+    <div class="row slide-in">
       <h1 class="text-center" style=" margin-bottom: 50px;" id="Preventions of flaming">Preventions of flaming</h1>
 
       <div class="col-6" style="margin-bottom: 100px;">
@@ -178,9 +195,29 @@
   
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
+
+      
+    <script>      window.addEventListener("scroll", function () {
+      const slideInElements = document.querySelectorAll(".slide-in");
+      slideInElements.forEach((element) => {
+        const slideInAt =
+          window.scrollY + window.innerHeight - element.clientHeight / 2;
+        const elementBottom = element.offsetTop + element.clientHeight;
+        const isHalfShown = slideInAt > element.offsetTop;
+        const isNotScrolledPast = window.scrollY < elementBottom;
+        if (isHalfShown && isNotScrolledPast) {
+          element.classList.add("active");
+        } else {
+          element.classList.remove("active");
+        }
+      });
+    });</script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
 </body>
 
 </html>

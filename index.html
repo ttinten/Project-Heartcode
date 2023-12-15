@@ -9,6 +9,31 @@
     <style>
         /* Add the styles */
 
+        :root {
+            --bg-color: white;
+            --text-color: black;
+        }
+        .dark-theme {
+            --bg-color: rgb(30, 30, 30);
+            --text-color: white;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        #toggle {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #toggle:hover {
+            background-color: gray;
+        }
+
         /* Style the video: 100% width and height to cover the entire window */
         #myVideo {
             /* position: fixed; */
@@ -49,7 +74,7 @@
 
 <body>
 <div class="col-12">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#" style="font-weight: bold;">Stop Cyberbullying</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,7 +136,7 @@
       </div>
 
       <div class="col-6">
-        <img src="Cyberbullying(edited).png" class="img-fluid">
+        <img src="Cyberbullying(edited).png" class="img-fluid rounded-5">
       </div>
 
     </div>
@@ -136,7 +161,7 @@
       </div>
 
       <div class="col-6">
-        <img src="R.png" class="img-fluid">
+        <img src="R.png" class="img-fluid rounded-5">
       </div>
     </div>
 
@@ -162,7 +187,7 @@
       </div>
 
       <div class="col-6">
-        <img src="Depression.jpeg" class="img-fluid">
+        <img src="Depression.jpeg" class="img-fluid rounded-5">
       </div>
     </div>
 
@@ -186,7 +211,7 @@
       </div>
 
       <div class="col-6">
-        <img src="Extinguisher.jpg" class="img-fluid">
+        <img src="Extinguisher.jpg" class="img-fluid rounded-5">
       </div>
 
       </div>
@@ -196,6 +221,7 @@
 
     <!-- JavaScript Bundle with Popper -->
 
+    
       
     <script>      window.addEventListener("scroll", function () {
       const slideInElements = document.querySelectorAll(".slide-in");

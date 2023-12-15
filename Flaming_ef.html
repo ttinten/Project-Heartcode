@@ -42,6 +42,17 @@
       #toggle:hover {
         background-color: gray;
       }
+      /* Slide in ani */
+      .slide-in {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 1s ease, transform 1s ease;
+      }
+      /* Add class for visible content */
+      .slide-in.active {
+        opacity: 1;
+        transform: translateX(0%);
+      }
     </style>
   </head>
   <body>
@@ -88,7 +99,7 @@
 
       <!-- Effects 1 -->
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center slide-in">
           <div class="col-6">
             <img
               src="./cyber-bullying-concept_23-2148588908.jpg"
@@ -98,10 +109,7 @@
             />
           </div>
           <div class="col-md-6 col-12 fw-bolder">
-            <h1 class="row text-decoration-underline fw-bold">
-              Effects #1 and #2
-            </h1>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red"
                 >Emotional Distress:</span
               >
@@ -110,7 +118,7 @@
               sadness, anxiety, or fear in the victim. Continuous exposure to
               such behavior can lead to significant emotional turmoil.
             </p>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red"
                 >Post-traumatic Stress:</span
               >
@@ -129,12 +137,9 @@
 
       <!-- Effect 2 -->
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center slide-in">
           <div class="col-md-6 col-12 fw-bolder">
-            <h1 class="row text-decoration-underline fw-bold">
-              Effects #3 and #4
-            </h1>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red"
                 >Suicidal Thoughts and Behaviors:</span
               >
@@ -143,7 +148,7 @@
               barrage of negative comments and harassment can make victims feel
               like there is no way out, leading to severe mental health crises.
             </p>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red"
                 >Academic and Work-related Impact:</span
               >
@@ -169,21 +174,21 @@
 
       <!-- Effect 3 -->
       <div class="container">
-        <div class="row align-items-center">
+        <div
+          class="row align-items-center slide-in"
+          style="padding-bottom: 20px"
+        >
           <div class="col-6">
             <img src="./Keys-to-Adressing_illo.webp" alt="" class="w-100" />
           </div>
           <div class="col-md-6 col-12 fw-bolder">
-            <h1 class="row text-decoration-underline fw-bold">
-              Effects #5 and #6
-            </h1>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red">Trust Issues: </span>
               Victims of flaming may develop trust issues, finding it difficult
               to trust others or form new relationships due to the betrayal and
               harassment they've experienced.
             </p>
-            <p class="row">
+            <p class="">
               <span class="fw-bolder" style="color: red"
                 >Stress-Related Symptoms:</span
               >
@@ -233,6 +238,21 @@
         } else {
           localStorage.removeItem("dark-mode");
         }
+      });
+      window.addEventListener("scroll", function () {
+        const slideInElements = document.querySelectorAll(".slide-in");
+        slideInElements.forEach((element) => {
+          const slideInAt =
+            window.scrollY + window.innerHeight - element.clientHeight / 2;
+          const elementBottom = element.offsetTop + element.clientHeight;
+          const isHalfShown = slideInAt > element.offsetTop;
+          const isNotScrolledPast = window.scrollY < elementBottom;
+          if (isHalfShown && isNotScrolledPast) {
+            element.classList.add("active");
+          } else {
+            element.classList.remove("active");
+          }
+        });
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

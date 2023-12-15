@@ -20,11 +20,25 @@
       function changeImage() {
         var image = document.getElementById("changeableImage");
         if (image.src.match("./sad.webp")) {
-          image.src =
-            "./happy.webp";
+          image.src = "./happy.webp";
         } else {
-          image.src =
-            "./sad.webp";
+          image.src = "./sad.webp";
+        }
+      }
+      function changeImage2() {
+        var image = document.getElementById("changeableImage2");
+        if (image.src.match("./204-2046244_rules-da-rules-book-png.png")) {
+          image.src = "./darul.webp";
+        } else {
+          image.src = "./204-2046244_rules-da-rules-book-png.png";
+        }
+      }
+      function changeImage3() {
+        var image = document.getElementById("changeableImage3");
+        if (image.src.match("./bigface.webp")) {
+          image.src = "./images (1).jpeg";
+        } else {
+          image.src = "./bigface.webp";
         }
       }
     </script>
@@ -80,9 +94,6 @@
         opacity: 1;
         transform: translateX(0%);
       }
-
-
-
     </style>
   </head>
   <body>
@@ -188,10 +199,13 @@
           </p>
         </div>
         <div class="col-6">
+          <!-- second image -->
           <img
             src="./204-2046244_rules-da-rules-book-png.png"
             alt=""
             class="w-100 rounded-5"
+            onclick="changeImage2()"
+            id="changeableImage2"
           />
         </div>
       </div>
@@ -206,7 +220,13 @@
         style="padding-left: 50px; padding-right: 50px; padding-bottom: 30px"
       >
         <div class="col-6">
-          <img src="./images (1).jpeg" alt="" class="w-100 rounded-4" />
+          <img
+            src="./images (1).jpeg"
+            alt=""
+            class="w-100 rounded-4"
+            onclick="changeImage3()"
+            id="changeableImage3"
+          />
         </div>
         <div class="col-md-6 col-12 fw-bolder">
           <p class="">
@@ -229,7 +249,6 @@
 
       <!-- Toggle Theme Button -->
       <button class="rounded-5" id="toggle">Theme</button>
-
     </div>
 
     <script
